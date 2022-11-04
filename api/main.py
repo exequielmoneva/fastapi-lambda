@@ -3,8 +3,8 @@ from http import HTTPStatus
 from fastapi import FastAPI
 from mangum import Mangum
 
-from controllers.jobs_controller import JobsController
-from schemas.schemas import Job
+from api.controllers.jobs_controller import JobsController
+from api.schemas.schemas import Job
 
 app = FastAPI()
 
