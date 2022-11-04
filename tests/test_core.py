@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 
 from api.main import app
 
-client = TestClient(app=app)
+# client = TestClient(app=app)
 
 
 """def test_root():
