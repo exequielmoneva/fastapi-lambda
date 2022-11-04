@@ -3,7 +3,7 @@ import uuid
 from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError
 
-from api.schemas.schemas import Job
+from api.schemas import Job
 
 FIELDS = ['company', 'position_title', 'process_status', 'date_applied']
 

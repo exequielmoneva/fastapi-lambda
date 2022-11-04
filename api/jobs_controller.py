@@ -1,5 +1,5 @@
-from api.schemas.schemas import Job
-from api.services.jobs_service import JobsService
+from api.schemas import Job
+from api.jobs_service import JobsService
 
 
 class JobsController:
