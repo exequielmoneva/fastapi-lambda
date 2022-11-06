@@ -14,10 +14,10 @@ This is a simple CRUD serverless API that allows you to keep track of your job a
 
 ## API specification
 
-|        Task        |     URL      | Method | Response code |     Response     |
-|:------------------:|:------------:|:------:|:-------------:|:----------------:|
-|  request all jobs  |    /jobs     |  GET   |      200      | List of all jobs |
-| Get single student | /jobs/job_id |  GET   |      200      |     Student      |
-|  Create a student  |    /jobs     |  POST  |      204      | Created student  |
-|   Update student   | /jobs/job_id | PATCH  |      200      | Updated student  |
-|   Delete student   |    /jobs     | DELETE |      204      | Student deleted  |
+|       Task       |     URL      | Method | Response code |     Response     |
+|:----------------:|:------------:|:------:|:-------------:|:----------------:|
+| request all jobs |    /jobs     |  GET   |      200      | List of all jobs |
+|  Get single job  | /jobs/job_id |  GET   |      200      |       Job        |
+|   Create a job   |    /jobs     |  POST  |      204      |    No content    |
+|    Update job    | /jobs/job_id | PATCH  |      200      |   Updated job    |
+|    Delete job    |    /jobs     | DELETE |      204      |    No content    |
