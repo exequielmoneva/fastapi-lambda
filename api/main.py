@@ -1,5 +1,6 @@
 import uuid
 from http import HTTPStatus
+from typing import Union
 
 import boto3
 from boto3.dynamodb.conditions import Key
@@ -9,6 +10,7 @@ from mangum import Mangum
 from pydantic import BaseModel
 
 app = FastAPI()
+
 FIELDS = ['company', 'position_title', 'process_status', 'date_applied']
 
 dynamodb = boto3.resource('dynamodb', region_name='eu-central-1')
@@ -20,6 +22,13 @@ class Job(BaseModel):
     position_title: str
     process_status: str
     date_applied: str
+
+
+class PatchJob(BaseModel):
+    company: Union[str, None] = None
+    position_title: Union[str, None] = None
+    process_status: Union[str, None] = None
+    date_applied: Union[str, None] = None
 
 
 @app.get("/jobs")
@@ -58,7 +67,7 @@ async def delete(job_id):
 
 
 @app.patch("/jobs/{job_id}", status_code=HTTPStatus.NO_CONTENT)
-async def patch(body: Job, job_id: str):
+async def patch(job_id: str, body: PatchJob):
     update_expression = "SET "
     expression_attribute_values = dict()
 
@@ -82,4 +91,4 @@ async def patch(body: Job, job_id: str):
         return response['Attributes']
 
 
-handler = Mangum(app=app)
+handler = Mangum(app=app, lifespan="off")
